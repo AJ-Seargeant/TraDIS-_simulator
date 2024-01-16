@@ -1,3 +1,4 @@
 # TraDIS_simulator.py
-# This programme is used to create synthetic Illumina reads from a Genebank bacterial genome file
-# Synthetic reads are used to assess the TraDIS software
+# This programme generates synthetic data from bacterial genome genebank files to asses the TraDIS toolkit
+# Programme was set up in a unix environment, and will be adapted for use in windows
+
