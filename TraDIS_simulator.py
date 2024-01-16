@@ -14,10 +14,12 @@ insert_positions = []
 selected_insert_positions = []
 fasta_lib={}
 
-#import and load genomic data file & insertion no into python & check
+#validate genomic data and insterion number
 if len(sys.argv)<3:
 	print('invalid command line argument: include a genbank file and a insertion number')
 	sys.exit(0)
+	
+#import and load genomic data file & insertion number into python 
 genbank_file=sys.argv[1] 
 insertions=int(sys.argv[2])
 
@@ -38,13 +40,13 @@ rand_insert_positions=TraDIS_simu_funct.essential_gene_insert_check(essential_ge
 
 #randomly select transposons up to specified insertion number
 insert_no=0
-insert_prob=random.randrange(10) 
+insert_prob=random.randrange(2) 
 for insert in rand_insert_positions:
-	insert_prob=random.randrange(10)
+	insert_prob=random.randrange(2)
 	insert_no+=1
-	if insert_prob < 5:
+	if insert_prob == 1:
 		insert_lib=TraDIS_simu_funct.transposon_seq_down(insert,ext_genome,insert_lib,insert_no)
-	if insert_prob >=5:
+	if insert_prob == 2:
 		insert_lib=TraDIS_simu_funct.transposon_seq_up(insert,ext_genome,insert_lib,insert_no)
 
 #write sequence output in fasta format
